@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AIチェッカーチェッカー</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>AIチェッカーチェッカー</h1>
+        <p class="description">
+          入力文が「AIチェッカー対策として添削された痕跡」を推定評価するプロトタイプです。
+          これは真偽判定ではなく分析結果です。
+        </p>
+      </header>
+
+      <section class="panel">
+        <h2>判定</h2>
+        <div class="field-row">
+          <label for="modeSelect">判定モード</label>
+          <select id="modeSelect">
+            <option value="single">単文判定</option>
+            <option value="compare">比較判定</option>
+          </select>
+        </div>
+
+        <div class="field-row">
+          <label for="modelSelect">モデル</label>
+          <select id="modelSelect"></select>
+        </div>
+
+        <div class="field-row">
+          <label for="apiKeyInput">OpenAI APIキー（セッション保存）</label>
+          <div class="inline-actions">
+            <input id="apiKeyInput" type="password" placeholder="sk-..." autocomplete="off" />
+            <button id="saveApiKeyBtn" type="button">保存</button>
+            <button id="clearApiKeyBtn" type="button" class="ghost">消去</button>
+          </div>
+        </div>
+
+        <div id="singleInputArea">
+          <label for="singleText">本文（1〜3000文字）</label>
+          <textarea id="singleText" rows="8" placeholder="ここに本文を入力"></textarea>
+          <p class="count"><span id="singleCount">0</span> / 3000</p>
+        </div>
+
+        <div id="compareInputArea" class="hidden">
+          <label for="beforeText">添削前（1〜3000文字）</label>
+          <textarea id="beforeText" rows="6" placeholder="添削前の本文"></textarea>
+          <p class="count"><span id="beforeCount">0</span> / 3000</p>
+
+          <label for="afterText">添削後（1〜3000文字）</label>
+          <textarea id="afterText" rows="6" placeholder="添削後の本文"></textarea>
+          <p class="count"><span id="afterCount">0</span> / 3000</p>
+        </div>
+
+        <div class="field-row checkbox">
+          <label>
+            <input id="autoSaveHistoryCheckbox" type="checkbox" />
+            判定完了時に履歴を自動保存
+          </label>
+        </div>
+
+        <div class="actions">
+          <button id="analyzeBtn" type="button">判定実行</button>
+        </div>
+
+        <p id="statusMessage" class="status" aria-live="polite"></p>
+        <p id="errorMessage" class="error" aria-live="polite"></p>
+      </section>
+
+      <section class="panel" id="resultSection">
+        <h2>結果</h2>
+        <div id="resultEmpty">まだ判定結果はありません。</div>
+        <article id="resultCard" class="hidden"></article>
+        <div class="actions">
+          <button id="copyResultBtn" type="button" class="ghost" disabled>結果をコピー</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="between">
+          <h2>履歴一覧</h2>
+          <button id="clearHistoryBtn" type="button" class="danger">全件削除</button>
+        </div>
+        <ul id="historyList" class="history-list"></ul>
+      </section>
+
+      <section class="panel hidden" id="historyDetailSection">
+        <div class="between">
+          <h2>履歴詳細</h2>
+          <button id="closeDetailBtn" type="button" class="ghost">閉じる</button>
+        </div>
+        <article id="historyDetailCard"></article>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
