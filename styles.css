@@ -1,0 +1,182 @@
+:root {
+  color-scheme: light;
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+body {
+  margin: 0;
+  background: #f5f7fb;
+  color: #1e2430;
+}
+
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+.description {
+  margin-top: 8px;
+  color: #39465c;
+}
+
+.panel {
+  background: #fff;
+  border: 1px solid #dce3ef;
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 16px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.field-row {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+label {
+  font-weight: 700;
+}
+
+select,
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+select,
+input,
+textarea {
+  border: 1px solid #bbc8de;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.inline-actions {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 8px;
+}
+
+.checkbox {
+  margin-top: 16px;
+}
+
+.actions {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+button {
+  border: 1px solid #2062d4;
+  background: #2062d4;
+  color: #fff;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button.ghost {
+  background: #fff;
+  color: #1d4da0;
+}
+
+button.danger {
+  border-color: #d44242;
+  background: #d44242;
+}
+
+.count {
+  margin-top: 4px;
+  color: #5a6680;
+  font-size: 0.9rem;
+}
+
+.status {
+  margin-top: 10px;
+  color: #1a7a30;
+}
+
+.error {
+  margin-top: 8px;
+  color: #b51f2e;
+  font-weight: 700;
+}
+
+.hidden {
+  display: none;
+}
+
+.between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.result-block {
+  margin-top: 12px;
+}
+
+.result-block ul {
+  margin: 8px 0 0;
+  padding-left: 20px;
+}
+
+.breakdown-item {
+  border: 1px solid #dce3ef;
+  border-radius: 8px;
+  padding: 8px;
+  margin-top: 8px;
+}
+
+.history-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.history-item {
+  border: 1px solid #dce3ef;
+  border-radius: 8px;
+  padding: 10px;
+  display: grid;
+  gap: 6px;
+}
+
+.history-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 680px) {
+  .inline-actions {
+    grid-template-columns: 1fr;
+  }
+}
